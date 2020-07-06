@@ -17,33 +17,37 @@ class FormUserDetails extends React.Component {
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Enter Your Details" style={styles.barColor}></AppBar>
-          <TextField
-            hintText="Enter Your First Name"
-            floatingLabelText="First Name"
-            onChange={handleChange('firstName')}
-            defaultValue={values.firstName}
-          />
-          <br />
-          <TextField
-            hintText="Enter Your Last Name"
-            floatingLabelText="Last Name"
-            onChange={handleChange('lastName')}
-            defaultValue={values.lastName}
-          />
-          <br />
-          <TextField
-            hintText="Enter Your Username"
-            floatingLabelText="Username"
-            onChange={handleChange('username')}
-            defaultValue={values.username}
-          />
-          <br />
-          <RaisedButton
-            label="next"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
+          <div className="contform">
+            <TextField
+              hintText="Enter Your First Name"
+              floatingLabelText="First Name"
+              onChange={handleChange('firstName')}
+              defaultValue={values.firstName}
+            />
+            <br />
+            <TextField
+              hintText="Enter Your Last Name"
+              floatingLabelText="Last Name"
+              onChange={handleChange('lastName')}
+              defaultValue={values.lastName}
+            />
+            <br />
+            <TextField
+              hintText="Enter Your Username"
+              floatingLabelText="Username"
+              onChange={handleChange('username')}
+              defaultValue={values.username}
+            />
+            <br />
+            <div className="contbutt">
+              <RaisedButton
+                label="next"
+                primary={true}
+                style={styles.button}
+                onClick={this.continue}
+              />
+            </div>
+          </div>
         </React.Fragment>
       </MuiThemeProvider>
     );

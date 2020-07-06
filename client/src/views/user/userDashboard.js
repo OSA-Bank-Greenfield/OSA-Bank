@@ -65,7 +65,9 @@ function ClippedDrawer(props) {
           </Typography>
           <Grid item xs />
           <Grid item>
-            <Typography variant="title">Welcome User!</Typography>
+            <Typography variant="title">
+              Welcome testouss1234@gmail.com !
+            </Typography>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -97,11 +99,11 @@ function ClippedDrawer(props) {
               <ListItemText primary="Simulator" />
             </ListItem>
 
-            <ListItem button key="Apply For A Loan" onClick={props.apply}>
+            <ListItem button key="Make An Appointment" onClick={props.apply}>
               <ListItemIcon>
                 <LabelImportantIcon />
               </ListItemIcon>
-              <ListItemText primary="Apply For A Loan" />
+              <ListItemText primary="Make An Appointment" />
             </ListItem>
 
             <ListItem

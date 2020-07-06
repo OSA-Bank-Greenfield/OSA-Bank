@@ -2,10 +2,14 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Redirect } from 'react-router-dom';
 
 import axios from 'axios';
 
 class Success extends React.Component {
+  state = {
+    redirect: false,
+  };
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -14,6 +18,17 @@ class Success extends React.Component {
   back = (e) => {
     e.preventDefault();
     this.props.prevStep();
+  };
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true,
+    });
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/userDashboard" />;
+    }
   };
 
   // sendInf = () => {
@@ -31,13 +46,18 @@ class Success extends React.Component {
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Success" style={styles.barColor} />
-          <h1>Your Profile Informations Were Updated Successfully</h1>
-          <RaisedButton
-            label="Go To My Dashboard"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
+          <h1 className="succh">
+            Your Profile Informations Were Created Successfully
+          </h1>
+          <div className="contbuttsuccess">
+            {this.renderRedirect()}
+            <RaisedButton
+              label="Go To My Dashboard"
+              primary={true}
+              style={styles.button}
+              onClick={this.setRedirect}
+            />
+          </div>
         </React.Fragment>
       </MuiThemeProvider>
     );

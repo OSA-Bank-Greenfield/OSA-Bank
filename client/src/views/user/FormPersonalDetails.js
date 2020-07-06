@@ -21,46 +21,48 @@ class FormPersonalDetails extends React.Component {
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Enter Your Details" style={styles.barColor}></AppBar>
-          <TextField
-            hintText="Enter Your Occupation"
-            floatingLabelText="Occupation"
-            onChange={handleChange('occupation')}
-            defaultValue={values.occupation}
-          />
-          <br />
-          <TextField
-            hintText="Enter Your State"
-            floatingLabelText="State"
-            onChange={handleChange('state')}
-            defaultValue={values.state}
-          />
-          <br />
-          <TextField
-            hintText="Enter Your City"
-            floatingLabelText="City"
-            onChange={handleChange('city')}
-            defaultValue={values.city}
-          />
-          <br />
-          <TextField
-            hintText="Enter Your Zip Code"
-            floatingLabelText="Zip Code"
-            onChange={handleChange('zipcode')}
-            defaultValue={values.zipcode}
-          />
-          <br />
-          <RaisedButton
-            label="Back"
-            primary={false}
-            style={styles.button}
-            onClick={this.back}
-          />
-          <RaisedButton
-            label="Next"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
+          <div className="contform">
+            <TextField
+              hintText="Enter Your Occupation"
+              floatingLabelText="Occupation"
+              onChange={handleChange('occupation')}
+              defaultValue={values.occupation}
+            />
+            <br />
+            <TextField
+              hintText="Enter Your State"
+              floatingLabelText="State"
+              onChange={handleChange('state')}
+              defaultValue={values.state}
+            />
+            <br />
+            <TextField
+              hintText="Enter Your City"
+              floatingLabelText="City"
+              onChange={handleChange('city')}
+              defaultValue={values.city}
+            />
+            <br />
+            <TextField
+              hintText="Enter Your Zip Code"
+              floatingLabelText="Zip Code"
+              onChange={handleChange('zipcode')}
+              defaultValue={values.zipcode}
+            />
+            <br />
+            <RaisedButton
+              label="Back"
+              primary={false}
+              style={styles.button}
+              onClick={this.back}
+            />
+            <RaisedButton
+              label="Next"
+              primary={true}
+              style={styles.button}
+              onClick={this.continue}
+            />
+          </div>
         </React.Fragment>
       </MuiThemeProvider>
     );

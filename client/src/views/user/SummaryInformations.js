@@ -44,28 +44,30 @@ class SummaryInformations extends React.Component {
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Summary Informations" style={styles.barColor}></AppBar>
-          <List>
-            <ListItem primaryText="First Name" secondaryText={firstName} />
-            <ListItem primaryText="Last Name" secondaryText={lastName} />
-            <ListItem primaryText="Username" secondaryText={username} />
-            <ListItem primaryText="Occupation" secondaryText={occupation} />
-            <ListItem primaryText="State" secondaryText={state} />
-            <ListItem primaryText="City" secondaryText={city} />
-            <ListItem primaryText="Zip Code" secondaryText={zipcode} />
-          </List>
-          <br />
-          <RaisedButton
-            label="Back"
-            primary={false}
-            style={styles.button}
-            onClick={this.back}
-          />
-          <RaisedButton
-            label="Confirm & Continue"
-            primary={true}
-            style={styles.button}
-            onClick={this.sendInf}
-          />
+          <div className="contsummary">
+            <List>
+              <ListItem primaryText="First Name" secondaryText={firstName} />
+              <ListItem primaryText="Last Name" secondaryText={lastName} />
+              <ListItem primaryText="Username" secondaryText={username} />
+              <ListItem primaryText="Occupation" secondaryText={occupation} />
+              <ListItem primaryText="State" secondaryText={state} />
+              <ListItem primaryText="City" secondaryText={city} />
+              <ListItem primaryText="Zip Code" secondaryText={zipcode} />
+            </List>
+            <br />
+            <RaisedButton
+              label="Back"
+              primary={false}
+              style={styles.button}
+              onClick={this.back}
+            />
+            <RaisedButton
+              label="Confirm & Continue"
+              primary={true}
+              style={styles.button}
+              onClick={this.sendInf}
+            />
+          </div>
         </React.Fragment>
       </MuiThemeProvider>
     );

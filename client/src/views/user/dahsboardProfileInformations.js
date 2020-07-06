@@ -32,15 +32,15 @@ class DashboardProfileInformations extends React.Component {
           users: response.data,
         });
         this.setState({
-          firstName: this.state.users[0].firstName,
-          lastName: this.state.users[0].lastName,
-          username: this.state.users[0].username,
-          occupation: this.state.users[0].occupation,
-          state: this.state.users[0].state,
-          city: this.state.users[0].city,
-          zipcode: this.state.users[0].zipcode,
+          firstName: this.state.users[this.state.users.length - 1].firstName,
+          lastName: this.state.users[this.state.users.length - 1].lastName,
+          username: this.state.users[this.state.users.length - 1].username,
+          occupation: this.state.users[this.state.users.length - 1].occupation,
+          state: this.state.users[this.state.users.length - 1].state,
+          city: this.state.users[this.state.users.length - 1].city,
+          zipcode: this.state.users[this.state.users.length - 1].zipcode,
         });
-        console.log(this.state.users[0].firstName);
+        // console.log(this.state.users[0].firstName);
         // console.log(this.state.classesList);
       })
 

@@ -29,7 +29,7 @@ class Simulator extends React.Component {
     if (this.state.calcView === 'false') {
       return (
         <div>
-          <div className="container">
+          <div className="containerinf">
             <div className="h1container">
               <h1>My Simulator</h1>
             </div>
@@ -81,7 +81,14 @@ class Simulator extends React.Component {
         </div>
       );
     } else {
-      return <SimulatorResult calc={result} />;
+      return (
+        <SimulatorResult
+          amount={this.state.amount}
+          numyears={this.state.numberOfYears}
+          frequency={this.state.frequency}
+          calc={result}
+        />
+      );
     }
   }
 }

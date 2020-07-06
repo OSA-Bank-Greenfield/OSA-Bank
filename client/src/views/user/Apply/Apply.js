@@ -35,7 +35,7 @@ class ApplyForLoan extends React.Component {
     if (this.state.success === 'false') {
       return (
         <div>
-          <div className="container">
+          <div className="containerinf">
             <div className="h1container">
               <h1>Make An Appointement</h1>
             </div>
