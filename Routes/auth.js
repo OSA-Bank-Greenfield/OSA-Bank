@@ -37,10 +37,10 @@ router.route('/login').post(async (req, res) => {
     res.status(400).json({ msg: e.message });
   }
 });
-
+//register new user
 router.route('/register').post(async (req, res) => {
   const { email, password } = req.body;
-
+  // check if there is email and password in the bodyrequest
   if (!email || !password) {
     return res.status(400).json({ msg: 'Please enter all fields' });
   }
@@ -59,7 +59,7 @@ router.route('/register').post(async (req, res) => {
       email,
       password: hash,
     });
-
+    // save your user in the database
     const savedUser = await newUser.save();
     if (!savedUser) throw Error('Something went wrong saving the user');
 
@@ -78,7 +78,7 @@ router.route('/register').post(async (req, res) => {
     res.status(400).json({ error: e.message });
   }
 });
-
+// find your user id and token
 router.route('/user').get(auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');

@@ -8,7 +8,7 @@ const UserInformations = require('../models/userinformations.model.js');
  * @desc    Get all users
  * @access  Private
  */
-
+// save your userinformation in the database
 router.route('/').post((req, res) => {
   var userInfos = new UserInformations(req.body);
   userInfos.save(function (err, result) {

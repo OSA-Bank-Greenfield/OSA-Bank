@@ -12,9 +12,11 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+// user address for react index
 app.use(express.static(__dirname + './client/public'));
-
+// add uri addres of mongodb
 const uri = process.env.URI;
+// connect your database
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -24,21 +26,23 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB connected');
 });
-
+// use user Router
 const userRouter = require('./routes/user');
 app.use('/user', userRouter);
+// use authentication router
 const authRouter = require('./routes/auth.js');
 app.use('/auth', authRouter);
+// use informations Router
 const userinformationsRouter = require('./routes/userinformations.js');
 app.use('/userinformations', userinformationsRouter);
-
+// use appoitement Router
 const appointementRouter = require('./routes/appointement.js');
 app.use('/appointement', appointementRouter);
-
+// check the user post is the same with token with the middleware
 app.get('/posts', authenticateToken, (req, res) => {
   res.json(posts.filter((post) => post.username === req.user.name));
 });
-
+// middleware check
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
@@ -51,46 +55,10 @@ function authenticateToken(req, res, next) {
     next();
   });
 }
-
+// use contact Router
 const contactRouter = require('./routes/contact');
 app.use('/contact', contactRouter);
-
-app.post('/api/forma', (req, res) => {
-  let smtpTransport = nodemailer.createTransport({
-    service: 'Gmail',
-    port: 465,
-    auth: {
-      user: 'osa.bank.test@gmail.com',
-      pass: 'oussemasiwarahmed',
-    },
-  });
-
-  let mailOptions = {
-    from: 'osa.bank.test@gmail.com',
-    to: `${req.body.email}`,
-    subject: 'Your Credit Simulator Details',
-    html: `
-      
-      <h3>Your Credit Details:</h3>
-      <ul>
-        <li>Name: ${req.body.name}</li>
-        <li>Email: ${req.body.email}</li>
-      </ul>
-      <h3>Message</h3>
-      <p> ${req.body.message}</p>
-      `,
-  };
-
-  smtpTransport.sendMail(mailOptions, (error, response) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.send('Success');
-    }
-    smtpTransport.close();
-  });
-});
-
+// connect to the localhost with port
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
